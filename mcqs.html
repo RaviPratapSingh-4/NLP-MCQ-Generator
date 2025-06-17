@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated MCQs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Generated Multiple Choice Questions</h2>
+        <div class="list-group">
+            {% for i, mcq in mcqs %}
+            <div class="list-group-item">
+                <strong>{{ i }}.</strong> {{ mcq[0] }}<br>
+                <ol type="A">
+                    {% for choice in mcq[1] %}
+                    <li>{{ choice }}</li>
+                    {% endfor %}
+                </ol>
+                <p><strong>Correct Answer:</strong> {{ mcq[2] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Generate More</a>
+    </div>
+</body>
+</html>
