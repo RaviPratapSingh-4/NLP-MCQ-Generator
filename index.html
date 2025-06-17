@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LLM MCQ Generator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+    <main class="main-content">
+        <div class="mcq-form-container">
+            <h1 class="mcq-form-title">Generate Multiple Choice Questions</h1>
+            <form method="POST" enctype="multipart/form-data" class="mcq-form">
+                
+                <!-- File Upload -->
+                <div class="form-group">
+                    <label class="form-label">Upload File(s) (.pdf or .txt)</label>
+                    <input type="file" name="files[]" class="form-file-input" multiple accept=".pdf,.txt">
+                </div>
+
+                <!-- Manual Text Input -->
+                <div class="form-group">
+                    <label class="form-label">Or Paste Text Below</label>
+                    <textarea name="text" rows="8" placeholder="Paste your text here..." style="width: 100%; padding: 10px;"></textarea>
+                </div>
+
+                <!-- Number of Outputs -->
+                <div class="form-group">
+                    <label class="form-label">Number of Questions</label>
+                    <select name="num_questions" class="form-select">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="form-submit-btn">Generate MCQs</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
